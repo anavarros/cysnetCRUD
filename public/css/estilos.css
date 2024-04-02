@@ -1,0 +1,105 @@
+* {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+
+}
+
+body {
+    margin: 0;
+}
+
+/*Bloque de estilos para el header*/
+.flex-container {
+    margin: 0;
+
+    display: flex;
+    flex-direction: row;
+    background-color: darkcyan;
+    width: 100%;
+    height: 100px;
+}
+.flex-item {
+    margin: 25px;
+    align-self: center;
+
+}
+
+/*Estilo de las paginas del header*/
+.flex-item > a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.flex-item > a:hover {
+    color: lightblue;
+}
+
+/*Bloque de estilos para el subheader*/
+.sub-header {
+    display: flex;
+    align-content: flex-end;
+    height: 30px;
+    background-color: rgb(222, 222, 222);
+    color: gray;
+
+}
+.breadcrumbs {
+    margin-right: auto;
+    align-self: center;    
+    margin-left: 5px;
+
+}
+
+.options {
+    align-self: center;
+    color: gray;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.options > a {
+    color: gray;
+    text-decoration: none;
+}
+
+.options > a:hover {
+    color: lightgray;
+}
+/**/
+.objectHidden {
+    display: none;
+}
+
+#flex {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20%;
+    padding-right: 25px;
+    width: fit-content;
+    border: 2px solid lightblue;
+    border-radius: 25px;
+}
+
+#flex > div > ul {
+    list-style-type: none;
+}
+
+.flex-container > ul > li {
+    margin: 15px;
+    text-decoration: none;
+}
+
+/*Estilos de las tablas*/
+table {
+    margin-left: 15%;
+}
+
+.table, td {
+    border: 1px solid black;
+}
+
+th {
+    background-color: cadetblue;
+    color: white;
+    font-weight: normal;
+}
