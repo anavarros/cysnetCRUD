@@ -1,11 +1,10 @@
 * {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
     margin: 0;
-    background-image: url("/img/background.jpeg");
+    background-image: url("/img/fondo_pagina.png");
 }
 
 .content {
@@ -28,13 +27,17 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+th {
     color: darkcyan;
+}
+
+.table-th {
+    color: white;
 }
 
 /*Bloque de estilos para el header*/
 .flex-container {
-
     margin: 0;
     display: flex;
     flex-direction: row;
@@ -46,35 +49,34 @@ h6 {
 .flex-item {
     margin: 25px;
     align-self: center;
-
 }
 
 /*Estilo de las paginas del header*/
-.flex-item>a {
+.flex-item > a {
     color: white;
     font-weight: bold;
     text-decoration: none;
 }
 
-.flex-item>a:hover {
+.flex-item > a:hover {
     color: lightblue;
 }
 
 /*Bloque de estilos para el subheader*/
 .sub-header {
     display: flex;
+    position: absolute;
+    width: 100%;
     align-content: flex-end;
-    height: 30px;
-    background-color: rgb(222, 222, 222);
+    height: 25px;
+    background-color: rgb(222, 222, 222, 0.9);
     color: gray;
-
 }
 
 .breadcrumbs {
     margin-right: auto;
     align-self: center;
     margin-left: 5px;
-
 }
 
 .options {
@@ -84,12 +86,12 @@ h6 {
     margin-right: 5px;
 }
 
-.options>a {
+.options > a {
     color: gray;
     text-decoration: none;
 }
 
-.options>a:hover {
+.options > a:hover {
     color: lightgray;
 }
 
@@ -98,19 +100,20 @@ h6 {
     list-style: square;
 }
 
-.list_options>li {
+.list_options > li {
     margin-top: 10px;
 }
 
-.list_options>li>a {
+.list_options > li > a {
     color: darkcyan;
 }
 
-.list_options>li>a:hover {
+.list_options > li > a:hover {
     color: lightblue;
 }
 
 /*Estilos de las tablas*/
+
 .tabla-all {
     display: block;
     margin: auto;
@@ -135,7 +138,7 @@ h6 {
     border-bottom: 1px solid darkcyan;
 }
 
-.tr-data>td {
+.tr-data > td {
     text-align: center;
     border-right: 1px solid lightgrey;
     padding: 15px;
@@ -162,7 +165,175 @@ h6 {
     color: white;
 }
 
-.footer-content>a {
+.footer-content > a {
     font-weight: bold;
     color: aliceblue;
+}
+
+/*Estilos para el formulario de creacion de empleado, departamento,etc...*/
+
+.form-create {
+    display: block;
+    width: 100%;
+    margin: auto;
+}
+
+.form-create > table {
+    width: 60%;
+    border: 0px solid darkcyan;
+    padding: 0px;
+    margin: auto;
+}
+
+.tr-input,
+.tr-label {
+    display: block;
+    margin-top: 20px;
+}
+
+.tr-input > td {
+    display: block;
+    margin: auto;
+    width: 90%;
+}
+
+.tr-label {
+    display: block;
+    margin-left: 5%;
+    width: 90;
+}
+
+.tr-input > td > input {
+    display: block;
+    width: 100%;
+}
+
+.tr-label > th {
+    font-weight: normal;
+}
+
+.title {
+    margin: 10px;
+    background-color: darkcyan;
+}
+
+.title > td > h2 {
+    padding: 10px;
+    color: white;
+}
+
+td.btn-td {
+    display: block;
+    margin-top: 20px;
+    margin-left: 40%;
+}
+
+input.btn,
+.submit-btn {
+    display: block;
+    width: fit-content;
+    height: 30px;
+    position: relative;
+    background-color: darkcyan;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 10px rgb(0, 89, 89);
+    transition: transform 1s, box-shadow 1s;
+}
+
+.submit-btn {
+    display: inline-block;
+    width: fit-content;
+    box-shadow: 0px 5px rgb(0, 89, 89);
+}
+
+input.btn:hover,
+.submit-btn:hover {
+    cursor: pointer;
+    transform: translateY(10px);
+    box-shadow: 0px 0px transparent;
+}
+
+.tr-warning > td {
+    font-size: small;
+    color: darkcyan;
+}
+
+.tr-warning {
+    display: block;
+    margin-bottom: 20px;
+}
+
+input[type="text"]::placeholder {
+    transition: transform 1s, color 0.5s;
+}
+
+input[type="text"]:focus::placeholder {
+    transform: translateY(-30px);
+    color: darkcyan;
+}
+
+input:focus {
+    background-color: rgb(233, 233, 233);
+}
+
+input[type="text"],
+input[type="date"] {
+    outline: none;
+    border: 0px solid white;
+    border-bottom: 2px solid darkcyan;
+}
+
+/**/
+#activa {
+    color: skyblue;
+}
+
+.own-navbar {
+    background-color: darkcyan;
+    color: white;
+}
+
+.nav-link-font {
+    color: white;
+}
+
+.nav-link-font:hover {
+    color: skyblue;
+}
+
+table {
+    margin: auto;
+}
+
+table {
+    border: 2px solid lightblue;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+td,
+tr {
+    border: 0px;
+}
+
+.btn-data {
+    text-align: center;
+}
+
+.btn {
+    background-color: lightblue;
+    border-color: white;
+    border-radius: 10px;
+    color: black;
+}
+
+.elementoHidden {
+    display: none;
+}
+
+li {
+    margin: 10px;
 }
