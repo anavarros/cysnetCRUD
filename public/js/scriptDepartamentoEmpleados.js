@@ -14,13 +14,13 @@ window.onload = function() {
     arrayDepartamentosEmpleados = departamentosEmpleados.split("{");
 
     //Ahora creo una nueva variable donde ire concatenando etiquetas html para crear una tabla
-    tablaDepartamentosEmpleados = "<table class='table'>";
-    tablaDepartamentosEmpleados += "<tr><th>ID</th><th>Codigo departamento</th><th>Codigo Empleado</th><th>¿Departamento principal?</th><th>Fecha desactivacion</th><th>Fecha Activacion</th></tr>"
+    tablaDepartamentosEmpleados = "<table class='tabla-all'>";
+    tablaDepartamentosEmpleados += "<tr class='all-headers'><th>ID</th><th>Codigo departamento</th><th>Codigo Empleado</th><th>¿Departamento principal?</th><th>Fecha desactivacion</th><th>Fecha Activacion</th></tr>"
 
     //Recorro todo el array de empleados y separo este array todo por comas para poder obtener todos los atributos de cada empleado
     for(let i = 1; i <= arrayDepartamentosEmpleados.length -1; i++) {
         let attrDepartamentosEmpleado = arrayDepartamentosEmpleados[i].split(",");
-        tablaDepartamentosEmpleados += "<tr>";
+        tablaDepartamentosEmpleados += "<tr class='tr-data'>";
 
         //Recorro ahora cada empleado, compruebo si es un campo que me interese (si no, simplemente continuo en la siguiente iteracion) y me encargo de decorar el atributo para que no queden caracteres de puntuacion o informacion irrelevante
         for(let j = 0; j <= attrDepartamentosEmpleado.length - 2; j++) {
@@ -36,7 +36,7 @@ window.onload = function() {
     }
 
     //Creo una ultima fila con el numero total de empleados
-    tablaDepartamentosEmpleados += "<th colspan='2'>Numero de empleados de departamentos totales</th><td colspan='9'>"+departamentosEmpleadosTotales+"</td>";
+    tablaDepartamentosEmpleados += "<th class='all-headers' colspan='2'>Numero de empleados de departamentos totales</th><td class='nTotales' colspan='9'>"+departamentosEmpleadosTotales+"</td>";
     tablaDepartamentosEmpleados += "</table>";
 
     //Hago una variable que es una nueva lista que apunte a un span vacio y le asigno el valor de toda la cadena que he ido creando

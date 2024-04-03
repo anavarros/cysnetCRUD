@@ -34,39 +34,42 @@
         </div>
     </header>
     
-    <h1>Eliminar un empleado</h1>
-
-    <h2>Indica que empleado quieres eliminar</h2>
-
-    
-    <form method="GET">
-        <label for="codigo_empleado">Introduzca el codigo del empleado que quiera eliminar:</label>
-        <input type="text" id="codigo_empleado" name="codigo_empleado">
-        <input type="submit" value="eliminar" name="enviar" class="btn">
-    </form>
-
-    <div id="empleado">
-        @php
-        $mensaje = "";
-        //Compruebo si el formulario se ha enviado
-        if(isset($_GET['enviar'])) {
-            //Si se ha enviado, creo una variable con el valor del input introducido por el usuario y compruebo si existe
-            $id = $_GET['codigo_empleado'];
-            if(isset($id) && $id !== "") {
-                //Si existe, intento encontrar la informacion del empleado llamando a dicha funcion en su controlador, en caso contrario, mando un mensaje avisando de que dicho departamento no existe.
-                try {
-                    $infoEmpleado = App\Http\Controllers\EmpleadoController::getEmpleado($id); 
-                    $empleado = App\Http\Controllers\EmpleadoController::deleteEmpleado($id); 
-                    $mensaje = "El empleado con id: ".$id." ha sido borrado exitosamente";
-                } catch(Exception $e) {
-                    $mensaje = "El empleado no ha podido ser borrado por que no existe";
+    <div class="content">
+        <h1>Eliminar un empleado</h1>
+        <h2>Indica que empleado quieres eliminar</h2>
+        
+        <form method="GET">
+            <label for="codigo_empleado">Introduzca el codigo del empleado que quiera eliminar:</label>
+            <input type="text" id="codigo_empleado" name="codigo_empleado">
+            <input type="submit" value="eliminar" name="enviar" class="btn">
+        </form>
+        <div id="empleado">
+            @php
+            $mensaje = "";
+            //Compruebo si el formulario se ha enviado
+            if(isset($_GET['enviar'])) {
+                //Si se ha enviado, creo una variable con el valor del input introducido por el usuario y compruebo si existe
+                $id = $_GET['codigo_empleado'];
+                if(isset($id) && $id !== "") {
+                    //Si existe, intento encontrar la informacion del empleado llamando a dicha funcion en su controlador, en caso contrario, mando un mensaje avisando de que dicho departamento no existe.
+                    try {
+                        $infoEmpleado = App\Http\Controllers\EmpleadoController::getEmpleado($id);
+                        $empleado = App\Http\Controllers\EmpleadoController::deleteEmpleado($id);
+                        $mensaje = "El empleado con id: ".$id." ha sido borrado exitosamente";
+                    } catch(Exception $e) {
+                        $mensaje = "El empleado no ha podido ser borrado por que no existe";
+                    }
                 }
-            } 
-        }
+            }
+        
+            @endphp
+            <p>{{$mensaje}}</p>
+        </div>
+    </div>
 
-    
-        @endphp
-        <p>{{$mensaje}}</p>
+
+    <div class="footer">
+        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
     </div>
 </body>
 </html>

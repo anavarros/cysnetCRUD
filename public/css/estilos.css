@@ -5,12 +5,31 @@
 
 body {
     margin: 0;
+    background-image: url("/img/background.jpeg");
+}
+
+.content {
+    display: block;
+    background-color: white;
+    width: 60%;
+    height: 100vh;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    top: 0;
+    position: sticky;
+}
+/*Estilos para los titulos*/
+h1, h2, h3, h4, h5, h6 {
+    color: darkcyan;
 }
 
 /*Bloque de estilos para el header*/
 .flex-container {
-    margin: 0;
 
+    margin: 0;
     display: flex;
     flex-direction: row;
     background-color: darkcyan;
@@ -65,41 +84,72 @@ body {
 .options > a:hover {
     color: lightgray;
 }
-/**/
+/*Estilos para las listas*/
+.list_options {
+    list-style: square;
+}
+
+.list_options > li {
+    margin-top: 10px;
+}
+
+.list_options > li > a {
+    color: darkcyan;
+}
+
+.list_options > li > a:hover {
+    color: lightblue;
+}
+
+/*Estilos de las tablas*/
+.tabla-all {
+    margin: auto;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid darkcyan;
+}
+
+.all-headers {
+    background-color: darkcyan;
+    color: white;
+}
+
+.nTotales {
+    color: darkcyan;
+    text-align: right;
+    padding: 15px;
+}
+
+.tr-data {
+    border-bottom: 1px solid darkcyan;
+}
+
+.tr-data > td {
+    text-align: center;
+    padding: 15px;
+}
+
+/*Estilo que esconde un bloque con un valor*/
 .objectHidden {
     display: none;
 }
 
-#flex {
+/*Estilos para el footer*/
+.footer {
     display: flex;
-    flex-direction: row;
-    margin-left: 20%;
-    padding-right: 25px;
-    width: fit-content;
-    border: 2px solid lightblue;
-    border-radius: 25px;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    height: 30px;
+    background-color: darkcyan;
+    align-content: center;
 }
 
-#flex > div > ul {
-    list-style-type: none;
+.footer-content {
+    margin: auto;
+    color: white; 
 }
-
-.flex-container > ul > li {
-    margin: 15px;
-    text-decoration: none;
-}
-
-/*Estilos de las tablas*/
-table {
-    margin-left: 15%;
-}
-
-.table, td {
-    border: 1px solid black;
-}
-
-th {
-    background-color: cadetblue;
-    color: white;
-    font-weight: normal;
+.footer-content > a {
+    font-weight: bold;
+    color: aliceblue;
 }

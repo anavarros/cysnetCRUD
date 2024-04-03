@@ -20,13 +20,19 @@
         </div>
     </header>
 
-    <h1 style="margin-left: 25%">Lista de opciones de empleados y departamentos</h1>
-    <ul>
-        <li><a href="{{@route('ver_departamentos')}}">Todos los departamentos</a></li>
-        <li><a href="{{@route('ver_departamento')}}">Ver un departamento</a></li>
-        <li><a href="{{@route('crear_departamento')}}">Crear un departamento</a></li>
-        <li><a href="{{@route('editar_departamento')}}">Editar un departamento</a></li>
-        <li><a href="{{@route('eliminar_departamento')}}">Eliminar un departamento</a></li>
-    </ul>
+    <div class="content">
+        <h1>Lista de opciones de departamentos</h1>
+        <ul class="list_options">
+            <li><a href="{{@route('ver_departamentos')}}">Todos los departamentos</a></li>
+            <li><a href="{{@route('ver_departamento')}}">Ver un departamento</a></li>
+            <li><a href="{{@route('crear_departamento')}}">Crear un departamento</a></li>
+            <li><a href="{{@route('editar_departamento')}}">Editar un departamento</a></li>
+            <li><a href="{{@route('eliminar_departamento')}}">Eliminar un departamento</a></li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
+    </div>
 </body>
 </html>

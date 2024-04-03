@@ -34,14 +34,20 @@
             </div>
         </div>
     </header>
+<div class="content">
+    
+        <h1>Estos son todos los departamentos</h1>
+    
+    
+        @php
+            $departamentos = App\Http\Controllers\DepartamentoController::getDepartamentos();
+        @endphp
+        <div><span id="departamentos" class="departamentosHidden">{{$departamentos}}</span><p id="listaDepartamentos"></p></div>
+    
+</div>
 
-    <h1>Estos son todos los departamentos</h1>
-
-
-    @php
-        $departamentos = App\Http\Controllers\DepartamentoController::getDepartamentos();
-    @endphp
-    <div><span id="departamentos" class="departamentosHidden">{{$departamentos}}</span><p id="listaDepartamentos"></p></div>
-   
+<div class="footer">
+    <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
+</div>
 </body>
 </html>

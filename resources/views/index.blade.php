@@ -16,16 +16,23 @@
             <div class="flex-item"><a href="{{@route('departamentos')}}">Departamentos</a></div>
             <div class="flex-item"><a href="{{@route('departamentos_empleados')}}">Empleados departamentos</a></div>
         </div>
+       
     </header>
 
-    <h1>Bienvenido</h1>
-    <p>En este proyecto podra acceder a tres paginas distintas desde las cuales podra llevar a cabo una funcion especifica como una tabla, las opciones que puede llevar a cabo son: </p>
-    <ul>
-        <li>Ver todos los registros de dicha pagina</li>
-        <li>Ver un registro en especifico</li>
-        <li>Crear un registro</li>
-        <li>Editar un registro</li>
-        <li>Eliminar un registro</li>
-    </ul>
+    <div class="content">
+        <h1>Bienvenido</h1>
+        <p>En este proyecto podra acceder a tres paginas distintas desde las cuales podra llevar a cabo una funcion especifica como una tabla, las operaciones que puede llevar a cabo son: </p>
+        <ul class="list_options">
+            <li>Ver todos los registros de dicha pagina</li>
+            <li>Ver un registro en especifico</li>
+            <li>Crear un registro</li>
+            <li>Editar un registro</li>
+            <li>Eliminar un registro</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
+    </div>
 </body>
 </html>

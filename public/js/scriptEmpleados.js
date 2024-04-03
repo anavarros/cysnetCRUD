@@ -11,16 +11,16 @@ window.onload = function() {
 
     //Ahora simplemente obtengo todos los datos que me interesan del string y quito los caracteres de llaves
     empleados = empleados.substring(0, empleados.length -12);
-    arrayEmpleados = empleados.split("{");
+    let arrayEmpleados = empleados.split("{");
 
     //Ahora creo una nueva variable donde ire concatenando etiquetas html para crear una tabla
-    tablaEmpleados = "<table class='table'>";
-    tablaEmpleados += "<tr><th>ID</th><th>Codigo Empleado</th><th>Codigo Usuario</th><th>Email</th><th>Fecha Activacion</th><th>Fecha desactivacion</th><th>Nombre</th><th>Primer Apellido</th><th>Segundo Apellido</th></tr>"
-
+    tablaEmpleados = "<table class='tabla-all'>";
+    tablaEmpleados += "<tr class='all-headers'><th>ID</th><th>Codigo Empleado</th><th>Codigo Usuario</th><th>Email</th><th>Fecha Activacion</th><th>Fecha desactivacion</th><th>Nombre</th><th>Primer Apellido</th><th>Segundo Apellido</th></tr>"
+    
     //Recorro todo el array de empleados y separo este array todo por comas para poder obtener todos los atributos de cada empleado
     for(let i = 1; i <= arrayEmpleados.length -1; i++) {
         let attrEmpleado = arrayEmpleados[i].split(",");
-        tablaEmpleados += "<tr>";
+        tablaEmpleados += "<tr class='tr-data'>";
 
         //Recorro ahora cada empleado, compruebo si es un campo que me interese (si no, simplemente continuo en la siguiente iteracion) y me encargo de decorar el atributo para que no queden caracteres de puntuacion o informacion irrelevante
         for(let j = 0; j <= attrEmpleado.length - 2; j++) {
@@ -36,7 +36,7 @@ window.onload = function() {
     }
 
     //Creo una ultima fila con el numero total de empleados
-    tablaEmpleados += "<th colspan='2'>Numero de empleados totales</th><td colspan='9'>"+empleadosTotales+"</td>";
+    tablaEmpleados += "<th class='all-headers' colspan='2'>Numero de empleados totales</th><th class='nTotales' colspan='9'>"+empleadosTotales+"</th>";
     tablaEmpleados += "</table>";
 
     //Hago una variable que es una nueva lista que apunte a un span vacio y le asigno el valor de toda la cadena que he ido creando

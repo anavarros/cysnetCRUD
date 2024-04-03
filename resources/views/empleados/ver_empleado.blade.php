@@ -27,39 +27,46 @@
             </div>
         </div>
     </header>
-
-    <h1>Ver un empleado</h1>
-
-    <form method="GET" onsubmit="mostrarEmpleado()">
-        <label for="codigo_empleado">Introduzca el codigo del empleado que quiera ver:</label>
-        <input type="text" id="codigo_empleado" name="codigo_empleado">
-        <input type="submit" value="enviar datos" name="enviar">
-    </form>
-
-    <div >
-        @php
-        $mensaje = "";
-        $id = "";
-        $empleado = "";
-        //Compruebo si el formulario se ha enviado
-        if(isset($_GET['enviar'])) {
-            //Si se ha enviado, creo una variable con el valor del input introducido por el usuario y compruebo si existe
-            $id = $_GET['codigo_empleado'];
-            if(isset($id) && $id !== "") {
-                //Si existe, intento encontrar la informacion del empleado llamando a dicha funcion en su controlador, en caso contrario, mando un mensaje avisando de que dicho departamento no existe.
-                try {
-                    $empleado = App\Http\Controllers\EmpleadoController::getEmpleado($id); 
-                    $mensaje = "Información del empleado".$id.":";
-                } catch(Exception $e) {
-                    $mensaje = "El siguiente empleado no existe";
+<div class="content">
+    
+        <h1>Ver un empleado</h1>
+    
+        <form method="GET" onsubmit="mostrarEmpleado()">
+            <label for="codigo_empleado">Introduzca el codigo del empleado que quiera ver:</label>
+            <input type="text" id="codigo_empleado" name="codigo_empleado">
+            <input type="submit" value="enviar datos" name="enviar">
+        </form>
+    
+        <div >
+            @php
+            $mensaje = "";
+            $id = "";
+            $empleado = "";
+            //Compruebo si el formulario se ha enviado
+            if(isset($_GET['enviar'])) {
+                //Si se ha enviado, creo una variable con el valor del input introducido por el usuario y compruebo si existe
+                $id = $_GET['codigo_empleado'];
+                if(isset($id) && $id !== "") {
+                    //Si existe, intento encontrar la informacion del empleado llamando a dicha funcion en su controlador, en caso contrario, mando un mensaje avisando de que dicho departamento no existe.
+                    try {
+                        $empleado = App\Http\Controllers\EmpleadoController::getEmpleado($id);
+                        $mensaje = "Información del empleado".$id.":";
+                    } catch(Exception $e) {
+                        $mensaje = "El siguiente empleado no existe";
+                    }
                 }
-            } 
-        }
-        @endphp
-    <div id="objeto" class="objectHidden">{{$empleado}}</div>
-    <span id="infoId" style="display: none">{{$id}}</span>
-    <h3 id="informacionHidden">Informacion sobre el empleado {{$id}}</h3>
-    <span id="listaAtributos"></span>
-    </div>
+            }
+            @endphp
+        <div id="objeto" class="objectHidden">{{$empleado}}</div>
+        <span id="infoId" style="display: none">{{$id}}</span>
+        <h3 id="informacionHidden">Informacion sobre el empleado {{$id}}</h3>
+        <span id="listaAtributos"></span>
+        </div>
+</div>
+
+
+<div class="footer">
+    <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
+</div>
 </body>
 </html>

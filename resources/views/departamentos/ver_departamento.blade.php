@@ -25,44 +25,50 @@
             </div>
         </div>
     </header>
-
-    <h1>Ver un departamento</h1>
-
-
-    <h2>Informacion del departamento</h2>
-
-
-    <form method="GET">
-        <label for="codigo_departamento">Introduzca el codigo del departamento que quiera ver:</label>
-        <input type="text" id="codigo_departamento" name="codigo_departamento">
-        <input type="submit" value="enviar datos" name="enviar">
-    </form>
-
-
-    <div id="departamento">
-        @php
-        $mensaje = "";
-        $departamento = "";
-        $id = "";
-        //Compruebo si el formulario se ha enviado
-        if(isset($_GET['enviar'])) {
-            //Si se ha enviado, creo una variable con el valor del input introducido por el usuario y compruebo si existe
-            $id = $_GET['codigo_departamento'];
-            if(isset($id) && $id !== "") {
-                //Si existe, intento encontrar la informacion del departamento llamando a dicha funcion en su controlador, en caso contrario, mando un mensaje avisando de que dicho departamento no existe.
-                try {
-                    $departamento = App\Http\Controllers\DepartamentoController::getDepartamento($id); 
-                    $mensaje = "Información del departamento ".$id.":";
-                } catch(Exception $e) {
-                    $mensaje = "El siguiente departamento no existe";
+<div class="content">
+    
+        <h1>Ver un departamento</h1>
+    
+    
+        <h2>Informacion del departamento</h2>
+    
+    
+        <form method="GET">
+            <label for="codigo_departamento">Introduzca el codigo del departamento que quiera ver:</label>
+            <input type="text" id="codigo_departamento" name="codigo_departamento">
+            <input type="submit" value="enviar datos" name="enviar">
+        </form>
+    
+    
+        <div id="departamento">
+            @php
+            $mensaje = "";
+            $departamento = "";
+            $id = "";
+            //Compruebo si el formulario se ha enviado
+            if(isset($_GET['enviar'])) {
+                //Si se ha enviado, creo una variable con el valor del input introducido por el usuario y compruebo si existe
+                $id = $_GET['codigo_departamento'];
+                if(isset($id) && $id !== "") {
+                    //Si existe, intento encontrar la informacion del departamento llamando a dicha funcion en su controlador, en caso contrario, mando un mensaje avisando de que dicho departamento no existe.
+                    try {
+                        $departamento = App\Http\Controllers\DepartamentoController::getDepartamento($id);
+                        $mensaje = "Información del departamento ".$id.":";
+                    } catch(Exception $e) {
+                        $mensaje = "El siguiente departamento no existe";
+                    }
                 }
-            } 
-        }
-        @endphp
-        <div id="objeto" class="objectHidden">{{$departamento}}</div>
-        <span id="infoId" style="display: none">{{$id}}</span>
-        <h3 id="informacionHidden">{{$mensaje}}</h3>
-        <span id="listaAtributos"></span>
-    </div>
+            }
+            @endphp
+            <div id="objeto" class="objectHidden">{{$departamento}}</div>
+            <span id="infoId" style="display: none">{{$id}}</span>
+            <h3 id="informacionHidden">{{$mensaje}}</h3>
+            <span id="listaAtributos"></span>
+        </div>
+</div>
+
+<div class="footer">
+    <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
+</div>
 </body>
 </html>

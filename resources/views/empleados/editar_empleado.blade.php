@@ -53,88 +53,89 @@
     </header>
 
 
-    <h1>Editar un empleado</h1>
-
-
-
-    <form method="GET">
-        <table>
-            <thead>
-                <tr>
-                    <td colspan="2"><h2>Editar un empleado</h2></td>
-                </tr>
-            </thead>
-
-            <tfoot>
-                <tr>
-                    <td colspan="2" class="btn-data"><input type="submit" value="Editar" name="enviar" class="btn"></td>
-                </tr>
-            </tfoot>
-
-            <tbody>
-                <tr>
-                    <td><label for="codEmpleado">Codigo de empleado </label></td>
-                    <td><input type="text" id="codEmpleado" name="codEmpleado"></td>
-                </tr>
-                <tr>
-                    <td><label for="codUsuario">Codigo de usuario </label></td>
-                    <td><input type="text" id="codUsuario" name="codUsuario"></td>
-                </tr>
-                <tr>
-                    <td><label for="nombre">Nombre </label></td>
-                    <td><input type="text" id="nombre" name="nombre"></td>
-                </tr>
-                <tr>
-                    <td><label for="primerApellido">Primer apellido </label></td>
-                    <td><input type="text" id="primerApellido" name="primerApellido"></td>
-                </tr>
-                <tr>
-                    <td><label for="segundoApellido">Segundo apellido </label></td>
-                    <td><input type="text" id="segundoApellido" name="segundoApellido"></td>
-                </tr>
-                <tr>
-                    <td><label for="fechaDesactivacion">Fecha desactivación </label></td>
-                    <td><input type="date" id="fechaDesactivacion" name="fechaDesactivacion" style="width: 94%"></td>
-                </tr>
-                <tr>
-                    <td><label for="email">Email </label></td>
-                    <td><input type="text" id="email" name="email"></td>
-                </tr>
-            </tbody>
-            
-        </table>
-    </form>
-
-    @php
-        $mensaje = "";
-        $nuevoEmpleado = "";
-        //Compruebo si el formulario se ha enviado
-        if(isset($_GET['enviar'])) {
-            //Si se ha enviado, declaro TODAS las variables del formulario
-            $codEmpleado = $_GET['codEmpleado'];
-            $codUsuario = $_GET['codUsuario'];
-            $nombre = $_GET['nombre'];
-            $primerApellido = $_GET['primerApellido'];
-            $segundoApellido = $_GET['segundoApellido'];
-            $email = $_GET['email'];
-            //Recojo la fecha actual y me aseguro de formatearla en en el formato pedido
-            $fecha = new DateTimeImmutable();
-            $fechaActivacion = $fecha->format('c');
-            $fechaDesactivacion = $_GET['fechaDesactivacion'];
-            $fechaDesactivacion = strtotime($fechaDesactivacion);
-            $fechaDesactivacion = date('c', $fechaDesactivacion);
-            if(isset($codEmpleado) && $codEmpleado !== "") {
-                //Si existe, intento encontrar la informacion del empleado llamando a dicha funcion en su controlador, en caso contrario, mando un mensaje avisando de que dicho departamento no existe.
-                try {
-                    $nuevoEmpleado = App\Http\Controllers\EmpleadoController::updateEmpleado($codEmpleado, $codUsuario, $nombre, $primerApellido ,$segundoApellido, $email, $fechaActivacion, $fechaDesactivacion); 
-                    $empleado = App\Http\Controllers\EmpleadoController::getEmpleado($codEmpleado);
-                    $mensaje = "Información del empleado".$codEmpleado.":".$empleado;
-                } catch(Exception $e) {
-                    $mensaje = "El siguiente empleado ya existe";
+    <div class="content">
+        <h1>Editar un empleado</h1>
+        <form method="GET">
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan="2"><h2>Editar un empleado</h2></td>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="2" class="btn-data"><input type="submit" value="Editar" name="enviar" class="btn"></td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td><label for="codEmpleado">Codigo de empleado </label></td>
+                        <td><input type="text" id="codEmpleado" name="codEmpleado"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="codUsuario">Codigo de usuario </label></td>
+                        <td><input type="text" id="codUsuario" name="codUsuario"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nombre">Nombre </label></td>
+                        <td><input type="text" id="nombre" name="nombre"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="primerApellido">Primer apellido </label></td>
+                        <td><input type="text" id="primerApellido" name="primerApellido"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="segundoApellido">Segundo apellido </label></td>
+                        <td><input type="text" id="segundoApellido" name="segundoApellido"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fechaDesactivacion">Fecha desactivación </label></td>
+                        <td><input type="date" id="fechaDesactivacion" name="fechaDesactivacion" style="width: 94%"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email </label></td>
+                        <td><input type="text" id="email" name="email"></td>
+                    </tr>
+                </tbody>
+        
+            </table>
+        </form>
+        @php
+            $mensaje = "";
+            $nuevoEmpleado = "";
+            //Compruebo si el formulario se ha enviado
+            if(isset($_GET['enviar'])) {
+                //Si se ha enviado, declaro TODAS las variables del formulario
+                $codEmpleado = $_GET['codEmpleado'];
+                $codUsuario = $_GET['codUsuario'];
+                $nombre = $_GET['nombre'];
+                $primerApellido = $_GET['primerApellido'];
+                $segundoApellido = $_GET['segundoApellido'];
+                $email = $_GET['email'];
+                //Recojo la fecha actual y me aseguro de formatearla en en el formato pedido
+                $fecha = new DateTimeImmutable();
+                $fechaActivacion = $fecha->format('c');
+                $fechaDesactivacion = $_GET['fechaDesactivacion'];
+                $fechaDesactivacion = strtotime($fechaDesactivacion);
+                $fechaDesactivacion = date('c', $fechaDesactivacion);
+                if(isset($codEmpleado) && $codEmpleado !== "") {
+                    //Si existe, intento encontrar la informacion del empleado llamando a dicha funcion en su controlador, en caso contrario, mando un mensaje avisando de que dicho departamento no existe.
+                    try {
+                        $nuevoEmpleado = App\Http\Controllers\EmpleadoController::updateEmpleado($codEmpleado, $codUsuario, $nombre, $primerApellido ,$segundoApellido, $email, $fechaActivacion, $fechaDesactivacion);
+                        $empleado = App\Http\Controllers\EmpleadoController::getEmpleado($codEmpleado);
+                        $mensaje = "Información del empleado".$codEmpleado.":".$empleado;
+                    } catch(Exception $e) {
+                        $mensaje = "El siguiente empleado ya existe";
+                    }
                 }
-            } 
-        }
-    @endphp
-    
+            }
+        @endphp
+        
+    </div>
+
+
+    <div class="footer">
+        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
+    </div>
 </body>
 </html>

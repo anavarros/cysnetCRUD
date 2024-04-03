@@ -20,14 +20,19 @@
         </div>
     </header>
 
-    <h1 style="margin-left: 25%">Lista de opciones de empleados y departamentos</h1>
-   
-    <ul>
-        <li><a href="{{@route('ver_empleados_departamentos')}}">Todos los empleados que pertenezcan a departamentos</a></li>
-        <li><a href="{{@route('ver_empleado_departamento')}}">Ver un empleado que pertenece a un departamento</a></li>
-        <li><a href="{{@route('crear_empleado_departamento')}}">Crear un empleado que pertenece a un departamento</a></li>
-        <li><a href="{{@route('editar_empleado_departamento')}}">Editar un empleado que pertenece a un departamento</a></li>
-        <li><a href="{{@route('eliminar_empleado_departamento')}}">Eliminar un empleado que pertenece a un departamento</a></li>
-    </ul>
+    <div class="content">
+        <h1>Lista de opciones de empleados y departamentos</h1>
+        <ul class="list_options">
+            <li><a href="{{@route('ver_empleados_departamentos')}}">Todos los empleados que pertenezcan a departamentos</a></li>
+            <li><a href="{{@route('ver_empleado_departamento')}}">Ver un empleado que pertenece a un departamento</a></li>
+            <li><a href="{{@route('crear_empleado_departamento')}}">Crear un empleado que pertenece a un departamento</a></li>
+            <li><a href="{{@route('editar_empleado_departamento')}}">Editar un empleado que pertenece a un departamento</a></li>
+            <li><a href="{{@route('eliminar_empleado_departamento')}}">Eliminar un empleado que pertenece a un departamento</a></li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
+    </div>
 </body>
 </html>
