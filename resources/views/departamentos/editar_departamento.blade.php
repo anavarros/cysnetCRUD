@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/estilos.css">
-    <title>Editar un departamento</title>
-</head>
-<body>
-    <header>
-        <div class="flex-container">
-            <div class="flex-item justify-start"><a href="{{@route('inicio')}}"><img src="/img/icono_home.png" alt="Icono de una casa" width="50px"></a></div>
-            <div class="flex-item"><a href="{{@route('empleados')}}">Empleados</a></div>
-            <div class="flex-item"><a href="{{@route('departamentos')}}">Departamentos</a></div>
-            <div class="flex-item"><a href="{{@route('departamentos_empleados')}}">Empleados departamentos</a></div>
-        </div>
+@extends('../templates/template')
+@section('content')
         <div class="sub-header">
             <div class="breadcrumbs"> Inicio > Departamentos > Editar un departamento</div>
             <div class="options">
@@ -27,17 +12,39 @@
     <div class="content">
         <h1>Editar un departamento</h1>
 
-        <form method="GET">
-            <label for="nombre">Nombre del departamento: </label>
-            <input type="text" id="nombre" name="nombre">
-            <br>
-            <label for="codCentro">Codigo del centro: </label>
-            <input type="text" id="codCentro" name="codCentro">
-            <br>
-            <label for="fechaFin">Fecha fin: </label>
-            <input type="date" id="fechaFin" name="fechaFin">
-            <br>
-            <input type="submit" value="Crear departamento" name="enviar">
+        <form method="GET" class="form-create">
+            <table>
+                <thead>
+                    <tr class="title">
+                        <td colspan="2"><h2>Editar un departamento</h2></td>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr  class="btn-td">
+                        <td  class="btn-td" colspan="2"><input type="submit" value="Editar departamento" name="enviar" class="btn"></td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr class='tr-label'>
+                        <th><label for="nombre">Nombre del departamento</label></th>
+                    </tr>
+                    <tr class='tr-input'>
+                        <td><input type="text" id="nombre" name="nombre" placeholder="nombre del departamento..."></td>
+                    </tr>
+                    <tr class='tr-label'>
+                        <th><label for="codCentro">Codigo del centro</label></th>
+                    </tr>
+                    <tr class='tr-input'>
+                        <td><input type="text" id="codCentro" name="codCentro" placeholder="codigo del departamento..."></td>
+                    </tr>
+                    <tr class='tr-label'>
+                        <th><label for="fechaFin">Fecha fin </label></th>
+                    </tr>
+                    <tr class='tr-input'>
+                        <td><input type="date" id="fechaFin" name="fechaFin" placeholder="fecha final..."></td>
+                    </tr>
+                </tbody>
+            </table>
         </form>
 
         @php
@@ -69,8 +76,4 @@
         @endphp
         <p>{{$nuevoDepartamento}}</p>
     </div>
-    <div class="footer">
-        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD">Repositorio de github</a></div>
-    </div>
-</body>
-</html>
+@endsection

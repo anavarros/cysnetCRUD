@@ -1,47 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/estilos.css">
-    <title>Crear un departamento</title>
-    <style>
-        table {
-            margin: auto;
-        }
-
-        table {
-            border: 2px solid lightblue;
-            border-radius: 10px;
-            padding: 10px
-        }
-
-        td, tr {
-            
-            border: 0px;
-        }
-
-        .btn-data {
-            text-align: center;
-        }
-        
-        .btn {
-            background-color: lightblue;
-            border-color: white;
-            border-radius: 10px;
-            color: black;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="flex-container">
-            <div class="flex-item justify-start"><a href="{{@route('inicio')}}"><img src="/img/icono_home.png" alt="Icono de una casa" width="50px"></a></div>
-            <div class="flex-item"><a href="{{@route('empleados')}}">Empleados</a></div>
-            <div class="flex-item"><a href="{{@route('departamentos')}}">Departamentos</a></div>
-            <div class="flex-item"><a href="{{@route('departamentos_empleados')}}">Empleados departamentos</a></div>
-        </div>
+@extends('../templates/template')
+@section('content')
         <div class="sub-header">
             <div class="breadcrumbs"> Inicio > Departamentos > Ver un departamento</div>
             <div class="options">
@@ -53,30 +11,39 @@
     </header>
     <div class="content">
         <h1>Crear un departamento</h1>
-        <form method="GET">
+        <form method="GET" class="form-create">
             <table>
                 <thead>
-                    <tr>
+                    <tr class="title">
                         <td colspan="2"><h2>Crear nuevo departamento</h2></td>
                     </tr>
                 </thead>
                 <tfoot>
-                    <tr>
-                        <td class="btn-data" colspan="2"><input type="submit" value="Crear departamento" name="enviar" class="btn"></td>
+                    <tr  class="btn-td">
+                        <td  class="btn-td" colspan="2"><input type="submit" value="Crear departamento" name="enviar" class="btn"></td>
                     </tr>
                 </tfoot>
                 <tbody>
-                    <tr>
-                        <td><label for="nombre">Nombre del departamento </label></td>
-                        <td><input type="text" id="nombre" name="nombre"></td>
+                    <tr class="tr-warning">
+                        <td><i>Los apartados marcados con * son obligatiorios</i></td>
                     </tr>
-                    <tr>
-                        <td><label for="codCentro">Codigo del centro </label></td>
-                        <td><input type="text" id="codCentro" name="codCentro"></td>
+                    <tr class='tr-label'>
+                        <th><label for="nombre">Nombre del departamento <span class="required">*</span></label></th>
                     </tr>
-                    <tr>
-                        <td><label for="fechaFin">Fecha fin </label></td>
-                        <td><input type="text" id="fechaFin" name="fechaFin"></td>
+                    <tr class='tr-input'>
+                        <td><input type="text" id="nombre" name="nombre" placeholder="nombre del departamento..."></td>
+                    </tr>
+                    <tr class='tr-label'>
+                        <th><label for="codCentro">Codigo del centro <span class="required">*</span></label></th>
+                    </tr>
+                    <tr class='tr-input'>
+                        <td><input type="text" id="codCentro" name="codCentro" placeholder="codigo del departamento..."></td>
+                    </tr>
+                    <tr class='tr-label'>
+                        <th><label for="fechaFin">Fecha fin </label></th>
+                    </tr>
+                    <tr class='tr-input'>
+                        <td><input type="date" id="fechaFin" name="fechaFin" placeholder="fecha final..."></td>
                     </tr>
                 </tbody>
             </table>
@@ -111,8 +78,4 @@
         <p>{{$nuevoDepartamento}}</p>
     </div>
 
-    <div class="footer">
-        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD">Repositorio de github</a></div>
-    </div>
-</body>
-</html>
+@endsection

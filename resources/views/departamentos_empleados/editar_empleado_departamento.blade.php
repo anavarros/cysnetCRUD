@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="/js/scriptDepartamentoEmpleados.js" async></script>
-    <link rel="stylesheet" href="/css/estilos.css">
-    <title>Editar un empleado que pertenezca a un departamento</title>
-</head>
-<body>
-    <header>
-        <div class="flex-container">
-            <div class="flex-item justify-start"><a href="{{@route('inicio')}}"><img src="/img/icono_home.png" alt="Icono de una casa" width="50px"></a></div>
-            <div class="flex-item"><a href="{{@route('empleados')}}">Empleados</a></div>
-            <div class="flex-item"><a href="{{@route('departamentos')}}">Departamentos</a></div>
-            <div class="flex-item"><a href="{{@route('departamentos_empleados')}}">Empleados departamentos</a></div>
-        </div>
+@extends('../templates/template')
+@section('content')
         <div class="sub-header">
             <div class="breadcrumbs"> Inicio > Empleados departamentos > Editar un departamento empleado</div>
             <div class="options">
@@ -27,20 +11,43 @@
     </header>
     <div class="content">
         <h1>Editar un empleado que pertenezca a un departamento</h1>
-        <form method="GET">
-            <label for="codCentro">Codigo del departamento: </label>
-            <input type="text" id="codCentro" name="codCentro">
-            <br>
-            <label for="codEmpleado">Codigo del empleado: </label>
-            <input type="text" id="codEmpleado" name="codEmpleado">
-            <br>
-            <label for="fechaFin">Fecha final: </label>
-            <input type="text" id="fechaFin" name="fechaFin">
-            <br>
-            <label for="dptPrincipal">Es un departamento principal?</label>
-            <input type="checkbox" id="dptPrincipal" name="dptPrincipal">
-            <br>
-            <input type="submit" value="Crear departamento" name="enviar">
+        <form method="GET" class="form-create">
+            <table>
+                <thead>
+                    <tr class="title">
+                        <td colspan="2"><h2>Editar un empleado departamento</h2></td>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr class="btn-td">
+                        <td colspan="2" class="btn-td"><input type="submit" value="Editar empleado departamento" name="enviar" class="btn"></td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr class="tr-label">
+                        <th><label for="codCentro">Codigo del departamento: <span class="required">*</span></label></th>
+                    </tr>
+                    <tr class='tr-input'>
+                        <td><input type="text" id="codCentro" name="codCentro" placeholder="Codigo del departamento..."></td>
+                    </tr>
+                    <tr class="tr-label">
+                        <th><label for="codEmpleado">Codigo del empleado: <span class="required">*</span></label></th>
+                    </tr>
+                    <tr class='tr-input'>
+                        <td><input type="text" id="codEmpleado" name="codEmpleado" placeholder="Codigo del empleado..."></td>
+                    </tr>
+                    <tr class="tr-label">
+                        <th><label for="fechaFin">Fecha final: </label></th>
+                    </tr>
+                    <tr  class='tr-input'>
+                        <td><input type="date" id="fechaFin" name="fechaFin" placeholder="Fecha final..."></td>
+                    </tr>
+                    <tr class="tr-label"> 
+                        <th><label for="dptPrincipal">Es un departamento principal?</label></th>
+                        <td><input type="checkbox" id="dptPrincipal" name="dptPrincipal"></td>
+                    </tr>
+                </tbody>
+            </table>
         </form>
 
         @php
@@ -76,8 +83,4 @@
 
         <p>{{$nuevoEmpleadoDepartamento}}</p>
     </div>
-    <div class="footer">
-        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD">Repositorio de github</a></div>
-    </div>
-</body>
-</html>
+@endsection

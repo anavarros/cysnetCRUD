@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/estilos.css">
-    <script src="/js/unDato.js" async></script>
-    <title>Ver un empleado</title>
-</head>
-<body>
-    <header>
-        <div class="flex-container">
-            <div class="flex-item justify-start"><a href="{{@route('inicio')}}"><img src="/img/icono_home.png" alt="Icono de una casa" width="50px"></a></div>
-            <div class="flex-item"><a href="{{@route('empleados')}}">Empleados</a></div>
-            <div class="flex-item"><a href="{{@route('departamentos')}}">Departamentos</a></div>
-            <div class="flex-item"><a href="{{@route('departamentos_empleados')}}">Empleados departamentos</a></div>
-        </div>
+@extends('../templates/template')
+@section('content')
         <div class="sub-header">
             <div class="breadcrumbs"> Inicio > Empleados > Ver un empleado</div>
             <div class="options">
@@ -30,8 +14,8 @@
 
         <form method="GET" onsubmit="mostrarEmpleado()">
             <label for="codigo_empleado">Introduzca el codigo del empleado que quiera ver:</label>
-            <input type="text" id="codigo_empleado" name="codigo_empleado">
-            <input type="submit" value="enviar datos" name="enviar">
+            <input type="text" id="codigo_empleado" name="codigo_empleado" placeholder="Codigo del empleado...">
+            <input class='submit-btn' type="submit" value="enviar datos" name="enviar">
         </form>
         <div>
             @php
@@ -60,8 +44,4 @@
             <span id="listaAtributos"></span>
         </div>
     </div>
-    <div class="footer">
-        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD">Repositorio de github</a></div>
-    </div>
-</body>
-</html>
+@endsection
