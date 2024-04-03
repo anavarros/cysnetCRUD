@@ -33,7 +33,6 @@
             </div>
         </div>
     </header>
-    
     <div class="content">
         <h1>Eliminar un empleado</h1>
         <h2>Indica que empleado quieres eliminar</h2>
@@ -43,6 +42,7 @@
             <input type="text" id="codigo_empleado" name="codigo_empleado">
             <input type="submit" value="eliminar" name="enviar" class="btn">
         </form>
+
         <div id="empleado">
             @php
             $mensaje = "";
@@ -69,7 +69,7 @@
 
 
     <div class="footer">
-        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
+        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD">Repositorio de github</a></div>
     </div>
 </body>
 </html>

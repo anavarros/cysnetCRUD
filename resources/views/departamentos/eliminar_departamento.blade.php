@@ -25,44 +25,40 @@
             </div>
         </div>
     </header>
-<div class="content">
-    
+    <div class="content">
         <h1>Ver un departamento</h1>
-    
         <h2>Indica que departamento quieres eliminar</h2>
-    
+
         <form method="GET">
             <label for="codigo_departamento">Introduzca el codigo del departamento que quiera eliminar:</label>
             <input type="text" id="codigo_departamento" name="codigo_departamento">
             <input type="submit" value="enviar datos" name="enviar">
         </form>
-    
+
         <div id="departamento">
             @php
-    
-            $mensaje = "";
-            //Compruebo si el formulario se ha enviado
-            if(isset($_GET['enviar'])) {
-                //Si se ha enviado, creo una variable con el valor del input introducido por el usuario y compruebo si existe
-                $id = $_GET['codigo_departamento'];
-                if(isset($id) && $id !== "") {
-                    //Si existe, intento encontrar la informacion del empleado llamando a dicha funcion en su controlador, en caso contrario, mando un mensaje avisando de que dicho departamento no existe.
-                    try {
-                        $departamento = App\Http\Controllers\DepartamentoController::deleteDepartamento($id);
-                        $mensaje = "El departamento con id: ".$id." ha sido borrado exitosamente";
-                    } catch(Exception $e) {
-                        $mensaje = "El departamento no ha podido ser borrado por que no existe";
+                $mensaje = "";
+                //Compruebo si el formulario se ha enviado
+                if(isset($_GET['enviar'])) {
+                    //Si se ha enviado, creo una variable con el valor del input introducido por el usuario y compruebo si existe
+                    $id = $_GET['codigo_departamento'];
+                    if(isset($id) && $id !== "") {
+                        //Si existe, intento encontrar la informacion del empleado llamando a dicha funcion en su controlador, en caso contrario, mando un mensaje avisando de que dicho departamento no existe.
+                        try {
+                            $departamento = App\Http\Controllers\DepartamentoController::deleteDepartamento($id);
+                            $mensaje = "El departamento con id: ".$id." ha sido borrado exitosamente";
+                        } catch(Exception $e) {
+                            $mensaje = "El departamento no ha podido ser borrado por que no existe";
+                        }
                     }
                 }
-            }
-    
             @endphp
             <p>{{$mensaje}}</p>
         </div>
-</div>
+    </div>
 
-<div class="footer">
-    <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
-</div>
+    <div class="footer">
+        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD">Repositorio de github</a></div>
+    </div>
 </body>
 </html>

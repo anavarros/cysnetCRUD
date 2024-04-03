@@ -51,11 +51,8 @@
             </div>
         </div>
     </header>
-<div class="content">
-    
+    <div class="content">
         <h1>Crear un departamento</h1>
-    
-    
         <form method="GET">
             <table>
                 <thead>
@@ -82,12 +79,9 @@
                         <td><input type="text" id="fechaFin" name="fechaFin"></td>
                     </tr>
                 </tbody>
-    
             </table>
         </form>
-    
         @php
-    
             $mensaje = "";
             $nuevoDepartamento = "";
             //Compruebo si el formulario se ha enviado
@@ -96,32 +90,29 @@
                 $nombre = $_GET['nombre'];
                 $codCentro = $_GET['codCentro'];
                 $fechaFin = $_GET['fechaFin'];
-    
+
                 //Me aseguro que la fecha final este bien formateada
                 $fechaFin = strtotime($fechaFin);
                 $fechaFin = date('c', $fechaFin);
-    
+
                 //Recojo la fecha actual y me aseguro de formatearla en en el formato pedido
                 $fecha = new DateTimeImmutable();
                 $fechaInicio = $fecha->format('c');
-    
+
                 //Si existe, intento encontrar la informacion del empleado llamando a dicha funcion en su controlador, en caso contrario, mando un mensaje avisando de que dicho departamento no existe.
                 try {
                     $nuevoDepartamento = App\Http\Controllers\DepartamentoController::setDepartamento($nombre, $codCentro, $fechaInicio, $fechaFin);
                 } catch(Exception $e) {
                     $mensaje = "El siguiente departamento ya existe";
                 }
-    
             }
-    
-    
         @endphp
-    
-        <p>{{$nuevoDepartamento}}</p>
-</div>
 
-<div class="footer">
-    <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
-</div>
+        <p>{{$nuevoDepartamento}}</p>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD">Repositorio de github</a></div>
+    </div>
 </body>
 </html>

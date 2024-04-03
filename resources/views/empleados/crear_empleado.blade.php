@@ -50,10 +50,8 @@
             </div>
         </div>
     </header>
-
     <div class="content">
         <h1>Crear un empleado</h1>
-        
         <form method="GET">
             <table>
                 <thead>
@@ -96,7 +94,6 @@
                         <td><input type="text" id="email" name="email"></td>
                     </tr>
                 </tbody>
-        
             </table>
         </form>
         @php
@@ -131,10 +128,8 @@
         @endphp
         <p>{{$nuevoEmpleado}}</p>
     </div>
-
-
     <div class="footer">
-        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
+        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD">Repositorio de github</a></div>
     </div>
 </body>
 </html>

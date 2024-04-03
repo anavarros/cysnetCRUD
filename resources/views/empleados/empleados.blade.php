@@ -19,8 +19,8 @@
             <div class="breadcrumbs"> Inicio > Empleados</div>
         </div>
     </header>
-<div class="content">
     
+    <div class="content">
         <h1>Lista de opciones de empleados</h1>
         <ul class="list_options">
             <li><a href="{{@route('ver_empleados')}}">Todos los empleados</a></li>
@@ -29,11 +29,11 @@
             <li><a href="{{@route('editar_empleado')}}">Editar un empleado</a></li>
             <li><a href="{{@route('eliminar_empleado')}}">Eliminar un empleado</a></li>
         </ul>
-</div>
+    </div>
 
 
-<div class="footer">
-    <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
-</div>
+    <div class="footer">
+        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD">Repositorio de github</a></div>
+    </div>
 </body>
 </html>

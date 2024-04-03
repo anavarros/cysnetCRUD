@@ -17,7 +17,6 @@
     </style>
 </head>
 <body>
-
     <header>
         <div class="flex-container">
             <div class="flex-item justify-start"><a href="{{@route('inicio')}}"><img src="/img/icono_home.png" alt="Icono de una casa" width="50px"></a></div>
@@ -34,19 +33,18 @@
             </div>
         </div>
     </header>
-
     <div class="content">
         <h1>Empleados</h1>
         <h2>Todos los empleados</h2>
+
         @php
             $empleados = App\Http\Controllers\EmpleadoController::getEmpleados();
         @endphp
+
         <div><span id="empleados" class="empleadosHidden">{{$empleados}}</span><p id="listaEmpleados"></p></div>
     </div>
-   
-
     <div class="footer">
-        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
+        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD">Repositorio de github</a></div>
     </div>
 </body>
 </html>

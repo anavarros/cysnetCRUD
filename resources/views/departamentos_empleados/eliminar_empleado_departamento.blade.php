@@ -24,22 +24,16 @@
             </div>
         </div>
     </header>
-<div class="content">
-    
+    <div class="content">
         <h1>Ver un empleado</h1>
-    
         <h2>Indica que empleado quieres eliminar</h2>
-    
-    
         <form method="GET">
             <label for="codigo_empleado_departamento">Introduzca el codigo del empleado que pertenezca a un departamento que quiera eliminar:</label>
             <input type="text" id="codigo_empleado_departamento" name="codigo_empleado_departamento">
             <input type="submit" value="enviar datos" name="enviar">
         </form>
-    
         <div id="empleado">
             @php
-    
             $mensaje = "";
             //Compruebo si el formulario se ha enviado
             if(isset($_GET['enviar'])) {
@@ -55,14 +49,12 @@
                     }
                 }
             }
-    
             @endphp
             <p>{{$mensaje}}</p>
         </div>
-</div>
-
-<div class="footer">
-    <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD/tree/master">Repositorio de github</a></div>
-</div>
+    </div>
+    <div class="footer">
+        <div class="footer-content">Hecho por Alberto Navarro | <a href="https://github.com/anavarros/cysnetCRUD">Repositorio de github</a></div>
+    </div>
 </body>
 </html>
